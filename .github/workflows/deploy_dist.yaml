@@ -17,6 +17,7 @@ jobs:
               run : npm run test
     
     build:
+        needs: test
         runs-on: ubuntu-latest
         steps:
             - name: Cloning the repo
@@ -29,3 +30,10 @@ jobs:
               run : npm install
             - name: Build Project
               run : npm run build 
+    
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy dist
+              uses: echo "Doploying..." 
