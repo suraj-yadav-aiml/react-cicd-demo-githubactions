@@ -1,0 +1,11 @@
+name: Great User
+on : push
+
+jobs:
+    greet:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greet User
+              run : echo "Hello User"
+            - name: Bye User
+              run : echo "Bye Bye !!!"
