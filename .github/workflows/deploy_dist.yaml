@@ -44,10 +44,22 @@ jobs:
               run : npm install
             - name: Build Project
               run : npm run build 
+            - name: Upload dist artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: dist-files    # Where to upload the artifacts
+                path: dist          # dist folder will be uploaded to `dist-files`
     
     deploy:
         needs: build
         runs-on: ubuntu-latest
         steps:
+            - name: Download dist artifact
+              uses: actions/download-artifact@v4
+              with: 
+                name: dist-files
+                path: dist
             - name: Deploy dist
-              run: echo "Doploying..." 
+              run: |
+                ls dist
+                echo "Doploying..." 
