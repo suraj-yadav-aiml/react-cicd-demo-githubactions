@@ -17,7 +17,7 @@ jobs:
             - name: Cloning the repo
               uses : actions/checkout@v4
             - name: Setup Node and Install Dependencies
-              uses: ./github/actions/setupnode
+              uses: ./.github/actions/setupnode
             - name: Run test cases
               run : npm run test
     
@@ -28,7 +28,7 @@ jobs:
             - name: Cloning the repo
               uses : actions/checkout@v4
             - name: Setup Node and Install Dependencies
-              uses: ./github/actions/setupnode
+              uses: ./.github/actions/setupnode
             - name: Build Project
               run : npm run build 
             - name: Upload dist artifact
