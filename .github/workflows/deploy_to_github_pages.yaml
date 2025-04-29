@@ -37,8 +37,8 @@ jobs:
             - name: Upload dist artifact
               uses: actions/upload-pages-artifact@v3 
               with:
-                name: github-pages
-                path: dist
+                name: github-pages  # Copy the content of 'dist' folder into `github-pages` 
+                path: dist          # and save them as .tar.gz , this format is required by the  `actions/deploy-pages`
         
 
     deploy:
